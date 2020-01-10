@@ -1,0 +1,6 @@
+// Example1: Factorial (Expected Result 120)
+var fatorial : int = 1;
+foreach i in 1..5 do { 
+    fatorial := fatorial*i;
+}
+print(fatorial)

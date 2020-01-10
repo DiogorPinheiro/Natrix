@@ -1,0 +1,7 @@
+var x : int = 4 ;
+if (4%2==0) then {
+       print("PAR"):
+    }
+else{
+    print("IMPAR");
+}

@@ -1,0 +1,9 @@
+// Example2: Find biggest value in an array (Expected Result 9)
+type arr = [4,2,3,7,9] ;
+var x : int = arr[0] ;
+foreach i in 0..4 do { 
+    if (array[i] > maximum) then {
+       maximum  := array[i];
+    }
+}
+print(maximum)

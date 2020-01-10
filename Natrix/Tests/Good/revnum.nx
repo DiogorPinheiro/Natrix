@@ -1,0 +1,8 @@
+// Reverse number (Expected Result 6745)
+var num : int = 5476;
+var rev_num : int = 0;
+foreach i in 0..3 do { 
+    rev_num := rev_num*10 + num%10; 
+    num := num/10;
+}
+print(rev_num);

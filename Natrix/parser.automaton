@@ -1,0 +1,2150 @@
+State 0:
+prog' -> . prog [ # ]
+-- On NEWLINE shift to state 1
+-- On prog shift to state 2
+-- On option(NEWLINE) shift to state 3
+-- On VAR reduce production option(NEWLINE) -> 
+-- On TYPE reduce production option(NEWLINE) -> 
+-- On RETURN reduce production option(NEWLINE) -> 
+-- On PRINT reduce production option(NEWLINE) -> 
+-- On IF reduce production option(NEWLINE) -> 
+-- On ID reduce production option(NEWLINE) -> 
+-- On FOR reduce production option(NEWLINE) -> 
+-- On ESQUARE reduce production option(NEWLINE) -> 
+-- On EPAREN reduce production option(NEWLINE) -> 
+-- On DEF reduce production option(NEWLINE) -> 
+-- On CST reduce production option(NEWLINE) -> 
+
+State 1:
+option(NEWLINE) -> NEWLINE . [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN DEF CST ]
+-- On VAR reduce production option(NEWLINE) -> NEWLINE 
+-- On TYPE reduce production option(NEWLINE) -> NEWLINE 
+-- On RETURN reduce production option(NEWLINE) -> NEWLINE 
+-- On PRINT reduce production option(NEWLINE) -> NEWLINE 
+-- On IF reduce production option(NEWLINE) -> NEWLINE 
+-- On ID reduce production option(NEWLINE) -> NEWLINE 
+-- On FOR reduce production option(NEWLINE) -> NEWLINE 
+-- On ESQUARE reduce production option(NEWLINE) -> NEWLINE 
+-- On EPAREN reduce production option(NEWLINE) -> NEWLINE 
+-- On DEF reduce production option(NEWLINE) -> NEWLINE 
+-- On CST reduce production option(NEWLINE) -> NEWLINE 
+
+State 2:
+prog' -> prog . [ # ]
+-- On # accept prog
+
+State 3:
+prog -> option(NEWLINE) . list(func) separated_nonempty_list(SEMICOLON,instr) EOF [ # ]
+-- On DEF shift to state 4
+-- On list(func) shift to state 133
+-- On func shift to state 136
+-- On VAR reduce production list(func) -> 
+-- On TYPE reduce production list(func) -> 
+-- On RETURN reduce production list(func) -> 
+-- On PRINT reduce production list(func) -> 
+-- On IF reduce production list(func) -> 
+-- On ID reduce production list(func) -> 
+-- On FOR reduce production list(func) -> 
+-- On ESQUARE reduce production list(func) -> 
+-- On EPAREN reduce production list(func) -> 
+-- On CST reduce production list(func) -> 
+
+State 4:
+func -> DEF . typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN DEF CST ]
+-- On INTTYPE shift to state 5
+-- On BOOLTYPE shift to state 6
+-- On typ shift to state 7
+
+State 5:
+typ -> INTTYPE . [ IGUAL ID FILLED ]
+-- On IGUAL reduce production typ -> INTTYPE 
+-- On ID reduce production typ -> INTTYPE 
+-- On FILLED reduce production typ -> INTTYPE 
+
+State 6:
+typ -> BOOLTYPE . [ IGUAL ID FILLED ]
+-- On IGUAL reduce production typ -> BOOLTYPE 
+-- On ID reduce production typ -> BOOLTYPE 
+-- On FILLED reduce production typ -> BOOLTYPE 
+
+State 7:
+func -> DEF typ . ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN DEF CST ]
+-- On ID shift to state 8
+-- On ident shift to state 9
+
+State 8:
+ident -> ID . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IN IGUAL FILLED ESQUARE EPAREN DSQUARE DPAREN DO DIVIDIR DIF AS AND ]
+-- On VIRGULA reduce production ident -> ID 
+-- On VEZES reduce production ident -> ID 
+-- On THEN reduce production ident -> ID 
+-- On OR reduce production ident -> ID 
+-- On OF reduce production ident -> ID 
+-- On NEWLINE reduce production ident -> ID 
+-- On MENOS reduce production ident -> ID 
+-- On MENORIGUAL reduce production ident -> ID 
+-- On MENOR reduce production ident -> ID 
+-- On MAIS reduce production ident -> ID 
+-- On MAIORIGUAL reduce production ident -> ID 
+-- On MAIOR reduce production ident -> ID 
+-- On IN reduce production ident -> ID 
+-- On IGUAL reduce production ident -> ID 
+-- On FILLED reduce production ident -> ID 
+-- On ESQUARE reduce production ident -> ID 
+-- On EPAREN reduce production ident -> ID 
+-- On DSQUARE reduce production ident -> ID 
+-- On DPAREN reduce production ident -> ID 
+-- On DO reduce production ident -> ID 
+-- On DIVIDIR reduce production ident -> ID 
+-- On DIF reduce production ident -> ID 
+-- On AS reduce production ident -> ID 
+-- On AND reduce production ident -> ID 
+
+State 9:
+func -> DEF typ ident . EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN DEF CST ]
+-- On EPAREN shift to state 10
+
+State 10:
+func -> DEF typ ident EPAREN . loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN DEF CST ]
+-- On ID shift to state 8
+-- On separated_nonempty_list(VIRGULA,ident) shift to state 11
+-- On loption(separated_nonempty_list(VIRGULA,ident)) shift to state 12
+-- On ident shift to state 130
+-- On DPAREN reduce production loption(separated_nonempty_list(VIRGULA,ident)) -> 
+
+State 11:
+loption(separated_nonempty_list(VIRGULA,ident)) -> separated_nonempty_list(VIRGULA,ident) . [ DPAREN ]
+-- On DPAREN reduce production loption(separated_nonempty_list(VIRGULA,ident)) -> separated_nonempty_list(VIRGULA,ident) 
+
+State 12:
+func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) . DPAREN AS body [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN DEF CST ]
+-- On DPAREN shift to state 13
+
+State 13:
+func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN . AS body [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN DEF CST ]
+-- On AS shift to state 14
+
+State 14:
+func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS . body [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN DEF CST ]
+-- On VAR shift to state 15
+-- On TYPE shift to state 18
+-- On RETURN shift to state 79
+-- On PRINT shift to state 81
+-- On NEWLINE shift to state 105
+-- On IF shift to state 107
+-- On ID shift to state 8
+-- On FOR shift to state 110
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On instr_simples shift to state 115
+-- On instr shift to state 117
+-- On ident shift to state 25
+-- On expr shift to state 99
+-- On body shift to state 129
+
+State 15:
+instr_simples -> VAR . ident AS instr_simples FILLED BY expr [ NEWLINE FILLED ]
+instr_simples -> VAR . ident AS typ IGUAL expr [ NEWLINE FILLED ]
+instr_simples -> VAR . ident AS ARRAY expr OF typ FILLED BY expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ident shift to state 16
+
+State 16:
+instr_simples -> VAR ident . AS instr_simples FILLED BY expr [ NEWLINE FILLED ]
+instr_simples -> VAR ident . AS typ IGUAL expr [ NEWLINE FILLED ]
+instr_simples -> VAR ident . AS ARRAY expr OF typ FILLED BY expr [ NEWLINE FILLED ]
+-- On AS shift to state 17
+
+State 17:
+instr_simples -> VAR ident AS . instr_simples FILLED BY expr [ NEWLINE FILLED ]
+instr_simples -> VAR ident AS . typ IGUAL expr [ NEWLINE FILLED ]
+instr_simples -> VAR ident AS . ARRAY expr OF typ FILLED BY expr [ NEWLINE FILLED ]
+-- On VAR shift to state 15
+-- On TYPE shift to state 18
+-- On RETURN shift to state 79
+-- On PRINT shift to state 81
+-- On INTTYPE shift to state 5
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On BOOLTYPE shift to state 6
+-- On ARRAY shift to state 85
+-- On typ shift to state 92
+-- On instr_simples shift to state 95
+-- On ident shift to state 25
+-- On expr shift to state 99
+
+State 18:
+instr_simples -> TYPE . ident IGUAL ARRAY expr OF expr [ NEWLINE FILLED ]
+instr_simples -> TYPE . ident IGUAL expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ident shift to state 19
+
+State 19:
+instr_simples -> TYPE ident . IGUAL ARRAY expr OF expr [ NEWLINE FILLED ]
+instr_simples -> TYPE ident . IGUAL expr [ NEWLINE FILLED ]
+-- On IGUAL shift to state 20
+
+State 20:
+instr_simples -> TYPE ident IGUAL . ARRAY expr OF expr [ NEWLINE FILLED ]
+instr_simples -> TYPE ident IGUAL . expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ARRAY shift to state 74
+-- On ident shift to state 25
+-- On expr shift to state 78
+
+State 21:
+expr -> ESQUARE . CST TO expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> ESQUARE . loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 68
+-- On separated_nonempty_list(VIRGULA,expr) shift to state 27
+-- On loption(separated_nonempty_list(VIRGULA,expr)) shift to state 72
+-- On ident shift to state 25
+-- On expr shift to state 30
+-- On DSQUARE reduce production loption(separated_nonempty_list(VIRGULA,expr)) -> 
+
+State 22:
+expr -> EPAREN . expr DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> EPAREN . MENOS expr DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> EPAREN . NOT expr DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On NOT shift to state 23
+-- On MENOS shift to state 63
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 66
+
+State 23:
+expr -> EPAREN NOT . expr DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 61
+
+State 24:
+expr -> CST . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VIRGULA reduce production expr -> CST 
+-- On VEZES reduce production expr -> CST 
+-- On THEN reduce production expr -> CST 
+-- On OR reduce production expr -> CST 
+-- On OF reduce production expr -> CST 
+-- On NEWLINE reduce production expr -> CST 
+-- On MENOS reduce production expr -> CST 
+-- On MENORIGUAL reduce production expr -> CST 
+-- On MENOR reduce production expr -> CST 
+-- On MAIS reduce production expr -> CST 
+-- On MAIORIGUAL reduce production expr -> CST 
+-- On MAIOR reduce production expr -> CST 
+-- On IGUAL reduce production expr -> CST 
+-- On FILLED reduce production expr -> CST 
+-- On ESQUARE reduce production expr -> CST 
+-- On DSQUARE reduce production expr -> CST 
+-- On DPAREN reduce production expr -> CST 
+-- On DO reduce production expr -> CST 
+-- On DIVIDIR reduce production expr -> CST 
+-- On DIF reduce production expr -> CST 
+-- On AND reduce production expr -> CST 
+
+State 25:
+expr -> ident . optarg [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On EPAREN shift to state 26
+-- On optarg shift to state 60
+-- On VIRGULA reduce production optarg -> 
+-- On VEZES reduce production optarg -> 
+-- On THEN reduce production optarg -> 
+-- On OR reduce production optarg -> 
+-- On OF reduce production optarg -> 
+-- On NEWLINE reduce production optarg -> 
+-- On MENOS reduce production optarg -> 
+-- On MENORIGUAL reduce production optarg -> 
+-- On MENOR reduce production optarg -> 
+-- On MAIS reduce production optarg -> 
+-- On MAIORIGUAL reduce production optarg -> 
+-- On MAIOR reduce production optarg -> 
+-- On IGUAL reduce production optarg -> 
+-- On FILLED reduce production optarg -> 
+-- On ESQUARE reduce production optarg -> 
+-- On DSQUARE reduce production optarg -> 
+-- On DPAREN reduce production optarg -> 
+-- On DO reduce production optarg -> 
+-- On DIVIDIR reduce production optarg -> 
+-- On DIF reduce production optarg -> 
+-- On AND reduce production optarg -> 
+
+State 26:
+optarg -> EPAREN . loption(separated_nonempty_list(VIRGULA,expr)) DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On separated_nonempty_list(VIRGULA,expr) shift to state 27
+-- On loption(separated_nonempty_list(VIRGULA,expr)) shift to state 28
+-- On ident shift to state 25
+-- On expr shift to state 30
+-- On DPAREN reduce production loption(separated_nonempty_list(VIRGULA,expr)) -> 
+
+State 27:
+loption(separated_nonempty_list(VIRGULA,expr)) -> separated_nonempty_list(VIRGULA,expr) . [ DSQUARE DPAREN ]
+-- On DSQUARE reduce production loption(separated_nonempty_list(VIRGULA,expr)) -> separated_nonempty_list(VIRGULA,expr) 
+-- On DPAREN reduce production loption(separated_nonempty_list(VIRGULA,expr)) -> separated_nonempty_list(VIRGULA,expr) 
+
+State 28:
+optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) . DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On DPAREN shift to state 29
+
+State 29:
+optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VIRGULA reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On VEZES reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On THEN reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On OR reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On OF reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On NEWLINE reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On MENOS reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On MENORIGUAL reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On MENOR reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On MAIS reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On MAIORIGUAL reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On MAIOR reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On IGUAL reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On FILLED reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On ESQUARE reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On DSQUARE reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On DPAREN reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On DO reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On DIVIDIR reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On DIF reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+-- On AND reduce production optarg -> EPAREN loption(separated_nonempty_list(VIRGULA,expr)) DPAREN 
+
+State 30:
+expr -> expr . MAIS expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DPAREN DIVIDIR DIF AND ]
+separated_nonempty_list(VIRGULA,expr) -> expr . [ DSQUARE DPAREN ]
+separated_nonempty_list(VIRGULA,expr) -> expr . VIRGULA separated_nonempty_list(VIRGULA,expr) [ DSQUARE DPAREN ]
+-- On VIRGULA shift to state 31
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On DSQUARE reduce production separated_nonempty_list(VIRGULA,expr) -> expr 
+-- On DPAREN reduce production separated_nonempty_list(VIRGULA,expr) -> expr 
+
+State 31:
+separated_nonempty_list(VIRGULA,expr) -> expr VIRGULA . separated_nonempty_list(VIRGULA,expr) [ DSQUARE DPAREN ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On separated_nonempty_list(VIRGULA,expr) shift to state 32
+-- On ident shift to state 25
+-- On expr shift to state 30
+
+State 32:
+separated_nonempty_list(VIRGULA,expr) -> expr VIRGULA separated_nonempty_list(VIRGULA,expr) . [ DSQUARE DPAREN ]
+-- On DSQUARE reduce production separated_nonempty_list(VIRGULA,expr) -> expr VIRGULA separated_nonempty_list(VIRGULA,expr) 
+-- On DPAREN reduce production separated_nonempty_list(VIRGULA,expr) -> expr VIRGULA separated_nonempty_list(VIRGULA,expr) 
+
+State 33:
+expr -> expr VEZES . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 34
+
+State 34:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr VEZES expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ESQUARE shift to state 35
+-- On VIRGULA reduce production expr -> expr VEZES expr 
+-- On VEZES reduce production expr -> expr VEZES expr 
+-- On THEN reduce production expr -> expr VEZES expr 
+-- On OR reduce production expr -> expr VEZES expr 
+-- On OF reduce production expr -> expr VEZES expr 
+-- On NEWLINE reduce production expr -> expr VEZES expr 
+-- On MENOS reduce production expr -> expr VEZES expr 
+-- On MENORIGUAL reduce production expr -> expr VEZES expr 
+-- On MENOR reduce production expr -> expr VEZES expr 
+-- On MAIS reduce production expr -> expr VEZES expr 
+-- On MAIORIGUAL reduce production expr -> expr VEZES expr 
+-- On MAIOR reduce production expr -> expr VEZES expr 
+-- On IGUAL reduce production expr -> expr VEZES expr 
+-- On FILLED reduce production expr -> expr VEZES expr 
+-- On DSQUARE reduce production expr -> expr VEZES expr 
+-- On DPAREN reduce production expr -> expr VEZES expr 
+-- On DO reduce production expr -> expr VEZES expr 
+-- On DIVIDIR reduce production expr -> expr VEZES expr 
+-- On DIF reduce production expr -> expr VEZES expr 
+-- On AND reduce production expr -> expr VEZES expr 
+
+State 35:
+expr -> expr ESQUARE . expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 36
+
+State 36:
+expr -> expr . MAIS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr ESQUARE expr . DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DSQUARE shift to state 59
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 37:
+expr -> expr OR . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 38
+
+State 38:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr OR expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On VIRGULA reduce production expr -> expr OR expr 
+-- On THEN reduce production expr -> expr OR expr 
+-- On OR reduce production expr -> expr OR expr 
+-- On OF reduce production expr -> expr OR expr 
+-- On NEWLINE reduce production expr -> expr OR expr 
+-- On FILLED reduce production expr -> expr OR expr 
+-- On DSQUARE reduce production expr -> expr OR expr 
+-- On DPAREN reduce production expr -> expr OR expr 
+-- On DO reduce production expr -> expr OR expr 
+
+State 39:
+expr -> expr MENOS . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 40
+
+State 40:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr MENOS expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On VIRGULA reduce production expr -> expr MENOS expr 
+-- On THEN reduce production expr -> expr MENOS expr 
+-- On OR reduce production expr -> expr MENOS expr 
+-- On OF reduce production expr -> expr MENOS expr 
+-- On NEWLINE reduce production expr -> expr MENOS expr 
+-- On MENOS reduce production expr -> expr MENOS expr 
+-- On MENORIGUAL reduce production expr -> expr MENOS expr 
+-- On MENOR reduce production expr -> expr MENOS expr 
+-- On MAIS reduce production expr -> expr MENOS expr 
+-- On MAIORIGUAL reduce production expr -> expr MENOS expr 
+-- On MAIOR reduce production expr -> expr MENOS expr 
+-- On IGUAL reduce production expr -> expr MENOS expr 
+-- On FILLED reduce production expr -> expr MENOS expr 
+-- On DSQUARE reduce production expr -> expr MENOS expr 
+-- On DPAREN reduce production expr -> expr MENOS expr 
+-- On DO reduce production expr -> expr MENOS expr 
+-- On DIF reduce production expr -> expr MENOS expr 
+-- On AND reduce production expr -> expr MENOS expr 
+
+State 41:
+expr -> expr DIVIDIR . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 42
+
+State 42:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr DIVIDIR expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ESQUARE shift to state 35
+-- On VIRGULA reduce production expr -> expr DIVIDIR expr 
+-- On VEZES reduce production expr -> expr DIVIDIR expr 
+-- On THEN reduce production expr -> expr DIVIDIR expr 
+-- On OR reduce production expr -> expr DIVIDIR expr 
+-- On OF reduce production expr -> expr DIVIDIR expr 
+-- On NEWLINE reduce production expr -> expr DIVIDIR expr 
+-- On MENOS reduce production expr -> expr DIVIDIR expr 
+-- On MENORIGUAL reduce production expr -> expr DIVIDIR expr 
+-- On MENOR reduce production expr -> expr DIVIDIR expr 
+-- On MAIS reduce production expr -> expr DIVIDIR expr 
+-- On MAIORIGUAL reduce production expr -> expr DIVIDIR expr 
+-- On MAIOR reduce production expr -> expr DIVIDIR expr 
+-- On IGUAL reduce production expr -> expr DIVIDIR expr 
+-- On FILLED reduce production expr -> expr DIVIDIR expr 
+-- On DSQUARE reduce production expr -> expr DIVIDIR expr 
+-- On DPAREN reduce production expr -> expr DIVIDIR expr 
+-- On DO reduce production expr -> expr DIVIDIR expr 
+-- On DIVIDIR reduce production expr -> expr DIVIDIR expr 
+-- On DIF reduce production expr -> expr DIVIDIR expr 
+-- On AND reduce production expr -> expr DIVIDIR expr 
+
+State 43:
+expr -> expr MENORIGUAL . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 44
+
+State 44:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr MENORIGUAL expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On MENOS shift to state 39
+-- On MAIS shift to state 45
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On VIRGULA reduce production expr -> expr MENORIGUAL expr 
+-- On THEN reduce production expr -> expr MENORIGUAL expr 
+-- On OR reduce production expr -> expr MENORIGUAL expr 
+-- On OF reduce production expr -> expr MENORIGUAL expr 
+-- On NEWLINE reduce production expr -> expr MENORIGUAL expr 
+-- On IGUAL reduce production expr -> expr MENORIGUAL expr 
+-- On FILLED reduce production expr -> expr MENORIGUAL expr 
+-- On DSQUARE reduce production expr -> expr MENORIGUAL expr 
+-- On DPAREN reduce production expr -> expr MENORIGUAL expr 
+-- On DO reduce production expr -> expr MENORIGUAL expr 
+-- On AND reduce production expr -> expr MENORIGUAL expr 
+
+State 45:
+expr -> expr MAIS . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 46
+
+State 46:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr MAIS expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On VIRGULA reduce production expr -> expr MAIS expr 
+-- On THEN reduce production expr -> expr MAIS expr 
+-- On OR reduce production expr -> expr MAIS expr 
+-- On OF reduce production expr -> expr MAIS expr 
+-- On NEWLINE reduce production expr -> expr MAIS expr 
+-- On MENOS reduce production expr -> expr MAIS expr 
+-- On MENORIGUAL reduce production expr -> expr MAIS expr 
+-- On MENOR reduce production expr -> expr MAIS expr 
+-- On MAIS reduce production expr -> expr MAIS expr 
+-- On MAIORIGUAL reduce production expr -> expr MAIS expr 
+-- On MAIOR reduce production expr -> expr MAIS expr 
+-- On IGUAL reduce production expr -> expr MAIS expr 
+-- On FILLED reduce production expr -> expr MAIS expr 
+-- On DSQUARE reduce production expr -> expr MAIS expr 
+-- On DPAREN reduce production expr -> expr MAIS expr 
+-- On DO reduce production expr -> expr MAIS expr 
+-- On DIF reduce production expr -> expr MAIS expr 
+-- On AND reduce production expr -> expr MAIS expr 
+
+State 47:
+expr -> expr MENOR . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 48
+
+State 48:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr MENOR expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On MENOS shift to state 39
+-- On MAIS shift to state 45
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On VIRGULA reduce production expr -> expr MENOR expr 
+-- On THEN reduce production expr -> expr MENOR expr 
+-- On OR reduce production expr -> expr MENOR expr 
+-- On OF reduce production expr -> expr MENOR expr 
+-- On NEWLINE reduce production expr -> expr MENOR expr 
+-- On IGUAL reduce production expr -> expr MENOR expr 
+-- On FILLED reduce production expr -> expr MENOR expr 
+-- On DSQUARE reduce production expr -> expr MENOR expr 
+-- On DPAREN reduce production expr -> expr MENOR expr 
+-- On DO reduce production expr -> expr MENOR expr 
+-- On AND reduce production expr -> expr MENOR expr 
+
+State 49:
+expr -> expr MAIORIGUAL . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 50
+
+State 50:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr MAIORIGUAL expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On MENOS shift to state 39
+-- On MAIS shift to state 45
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On VIRGULA reduce production expr -> expr MAIORIGUAL expr 
+-- On THEN reduce production expr -> expr MAIORIGUAL expr 
+-- On OR reduce production expr -> expr MAIORIGUAL expr 
+-- On OF reduce production expr -> expr MAIORIGUAL expr 
+-- On NEWLINE reduce production expr -> expr MAIORIGUAL expr 
+-- On IGUAL reduce production expr -> expr MAIORIGUAL expr 
+-- On FILLED reduce production expr -> expr MAIORIGUAL expr 
+-- On DSQUARE reduce production expr -> expr MAIORIGUAL expr 
+-- On DPAREN reduce production expr -> expr MAIORIGUAL expr 
+-- On DO reduce production expr -> expr MAIORIGUAL expr 
+-- On AND reduce production expr -> expr MAIORIGUAL expr 
+
+State 51:
+expr -> expr MAIOR . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 52
+
+State 52:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr MAIOR expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On MENOS shift to state 39
+-- On MAIS shift to state 45
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On VIRGULA reduce production expr -> expr MAIOR expr 
+-- On THEN reduce production expr -> expr MAIOR expr 
+-- On OR reduce production expr -> expr MAIOR expr 
+-- On OF reduce production expr -> expr MAIOR expr 
+-- On NEWLINE reduce production expr -> expr MAIOR expr 
+-- On IGUAL reduce production expr -> expr MAIOR expr 
+-- On FILLED reduce production expr -> expr MAIOR expr 
+-- On DSQUARE reduce production expr -> expr MAIOR expr 
+-- On DPAREN reduce production expr -> expr MAIOR expr 
+-- On DO reduce production expr -> expr MAIOR expr 
+-- On AND reduce production expr -> expr MAIOR expr 
+
+State 53:
+expr -> expr IGUAL . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 54
+
+State 54:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr IGUAL expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On VIRGULA reduce production expr -> expr IGUAL expr 
+-- On THEN reduce production expr -> expr IGUAL expr 
+-- On OR reduce production expr -> expr IGUAL expr 
+-- On OF reduce production expr -> expr IGUAL expr 
+-- On NEWLINE reduce production expr -> expr IGUAL expr 
+-- On FILLED reduce production expr -> expr IGUAL expr 
+-- On DSQUARE reduce production expr -> expr IGUAL expr 
+-- On DPAREN reduce production expr -> expr IGUAL expr 
+-- On DO reduce production expr -> expr IGUAL expr 
+-- On AND reduce production expr -> expr IGUAL expr 
+
+State 55:
+expr -> expr DIF . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 56
+
+State 56:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr DIF expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On MENOS shift to state 39
+-- On MAIS shift to state 45
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On VIRGULA reduce production expr -> expr DIF expr 
+-- On THEN reduce production expr -> expr DIF expr 
+-- On OR reduce production expr -> expr DIF expr 
+-- On OF reduce production expr -> expr DIF expr 
+-- On NEWLINE reduce production expr -> expr DIF expr 
+-- On IGUAL reduce production expr -> expr DIF expr 
+-- On FILLED reduce production expr -> expr DIF expr 
+-- On DSQUARE reduce production expr -> expr DIF expr 
+-- On DPAREN reduce production expr -> expr DIF expr 
+-- On DO reduce production expr -> expr DIF expr 
+-- On AND reduce production expr -> expr DIF expr 
+
+State 57:
+expr -> expr AND . expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 58
+
+State 58:
+expr -> expr . MAIS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr AND expr . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On VIRGULA reduce production expr -> expr AND expr 
+-- On THEN reduce production expr -> expr AND expr 
+-- On OR reduce production expr -> expr AND expr 
+-- On OF reduce production expr -> expr AND expr 
+-- On NEWLINE reduce production expr -> expr AND expr 
+-- On FILLED reduce production expr -> expr AND expr 
+-- On DSQUARE reduce production expr -> expr AND expr 
+-- On DPAREN reduce production expr -> expr AND expr 
+-- On DO reduce production expr -> expr AND expr 
+-- On AND reduce production expr -> expr AND expr 
+
+State 59:
+expr -> expr ESQUARE expr DSQUARE . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VIRGULA reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On VEZES reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On THEN reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On OR reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On OF reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On NEWLINE reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MENOS reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MENORIGUAL reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MENOR reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MAIS reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MAIORIGUAL reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MAIOR reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On IGUAL reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On FILLED reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On ESQUARE reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On DSQUARE reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On DPAREN reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On DO reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On DIVIDIR reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On DIF reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On AND reduce production expr -> expr ESQUARE expr DSQUARE 
+
+State 60:
+expr -> ident optarg . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VIRGULA reduce production expr -> ident optarg 
+-- On VEZES reduce production expr -> ident optarg 
+-- On THEN reduce production expr -> ident optarg 
+-- On OR reduce production expr -> ident optarg 
+-- On OF reduce production expr -> ident optarg 
+-- On NEWLINE reduce production expr -> ident optarg 
+-- On MENOS reduce production expr -> ident optarg 
+-- On MENORIGUAL reduce production expr -> ident optarg 
+-- On MENOR reduce production expr -> ident optarg 
+-- On MAIS reduce production expr -> ident optarg 
+-- On MAIORIGUAL reduce production expr -> ident optarg 
+-- On MAIOR reduce production expr -> ident optarg 
+-- On IGUAL reduce production expr -> ident optarg 
+-- On FILLED reduce production expr -> ident optarg 
+-- On ESQUARE reduce production expr -> ident optarg 
+-- On DSQUARE reduce production expr -> ident optarg 
+-- On DPAREN reduce production expr -> ident optarg 
+-- On DO reduce production expr -> ident optarg 
+-- On DIVIDIR reduce production expr -> ident optarg 
+-- On DIF reduce production expr -> ident optarg 
+-- On AND reduce production expr -> ident optarg 
+
+State 61:
+expr -> expr . MAIS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> EPAREN NOT expr . DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DPAREN shift to state 62
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 62:
+expr -> EPAREN NOT expr DPAREN . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VIRGULA reduce production expr -> EPAREN NOT expr DPAREN 
+-- On VEZES reduce production expr -> EPAREN NOT expr DPAREN 
+-- On THEN reduce production expr -> EPAREN NOT expr DPAREN 
+-- On OR reduce production expr -> EPAREN NOT expr DPAREN 
+-- On OF reduce production expr -> EPAREN NOT expr DPAREN 
+-- On NEWLINE reduce production expr -> EPAREN NOT expr DPAREN 
+-- On MENOS reduce production expr -> EPAREN NOT expr DPAREN 
+-- On MENORIGUAL reduce production expr -> EPAREN NOT expr DPAREN 
+-- On MENOR reduce production expr -> EPAREN NOT expr DPAREN 
+-- On MAIS reduce production expr -> EPAREN NOT expr DPAREN 
+-- On MAIORIGUAL reduce production expr -> EPAREN NOT expr DPAREN 
+-- On MAIOR reduce production expr -> EPAREN NOT expr DPAREN 
+-- On IGUAL reduce production expr -> EPAREN NOT expr DPAREN 
+-- On FILLED reduce production expr -> EPAREN NOT expr DPAREN 
+-- On ESQUARE reduce production expr -> EPAREN NOT expr DPAREN 
+-- On DSQUARE reduce production expr -> EPAREN NOT expr DPAREN 
+-- On DPAREN reduce production expr -> EPAREN NOT expr DPAREN 
+-- On DO reduce production expr -> EPAREN NOT expr DPAREN 
+-- On DIVIDIR reduce production expr -> EPAREN NOT expr DPAREN 
+-- On DIF reduce production expr -> EPAREN NOT expr DPAREN 
+-- On AND reduce production expr -> EPAREN NOT expr DPAREN 
+
+State 63:
+expr -> EPAREN MENOS . expr DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 64
+
+State 64:
+expr -> expr . MAIS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> EPAREN MENOS expr . DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DPAREN shift to state 65
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 65:
+expr -> EPAREN MENOS expr DPAREN . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VIRGULA reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On VEZES reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On THEN reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On OR reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On OF reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On NEWLINE reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On MENOS reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On MENORIGUAL reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On MENOR reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On MAIS reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On MAIORIGUAL reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On MAIOR reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On IGUAL reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On FILLED reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On ESQUARE reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On DSQUARE reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On DPAREN reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On DO reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On DIVIDIR reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On DIF reduce production expr -> EPAREN MENOS expr DPAREN 
+-- On AND reduce production expr -> EPAREN MENOS expr DPAREN 
+
+State 66:
+expr -> expr . MAIS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> EPAREN expr . DPAREN [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DPAREN shift to state 67
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 67:
+expr -> EPAREN expr DPAREN . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VIRGULA reduce production expr -> EPAREN expr DPAREN 
+-- On VEZES reduce production expr -> EPAREN expr DPAREN 
+-- On THEN reduce production expr -> EPAREN expr DPAREN 
+-- On OR reduce production expr -> EPAREN expr DPAREN 
+-- On OF reduce production expr -> EPAREN expr DPAREN 
+-- On NEWLINE reduce production expr -> EPAREN expr DPAREN 
+-- On MENOS reduce production expr -> EPAREN expr DPAREN 
+-- On MENORIGUAL reduce production expr -> EPAREN expr DPAREN 
+-- On MENOR reduce production expr -> EPAREN expr DPAREN 
+-- On MAIS reduce production expr -> EPAREN expr DPAREN 
+-- On MAIORIGUAL reduce production expr -> EPAREN expr DPAREN 
+-- On MAIOR reduce production expr -> EPAREN expr DPAREN 
+-- On IGUAL reduce production expr -> EPAREN expr DPAREN 
+-- On FILLED reduce production expr -> EPAREN expr DPAREN 
+-- On ESQUARE reduce production expr -> EPAREN expr DPAREN 
+-- On DSQUARE reduce production expr -> EPAREN expr DPAREN 
+-- On DPAREN reduce production expr -> EPAREN expr DPAREN 
+-- On DO reduce production expr -> EPAREN expr DPAREN 
+-- On DIVIDIR reduce production expr -> EPAREN expr DPAREN 
+-- On DIF reduce production expr -> EPAREN expr DPAREN 
+-- On AND reduce production expr -> EPAREN expr DPAREN 
+
+State 68:
+expr -> CST . [ VIRGULA VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> ESQUARE CST . TO expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On TO shift to state 69
+-- On VIRGULA reduce production expr -> CST 
+-- On VEZES reduce production expr -> CST 
+-- On OR reduce production expr -> CST 
+-- On MENOS reduce production expr -> CST 
+-- On MENORIGUAL reduce production expr -> CST 
+-- On MENOR reduce production expr -> CST 
+-- On MAIS reduce production expr -> CST 
+-- On MAIORIGUAL reduce production expr -> CST 
+-- On MAIOR reduce production expr -> CST 
+-- On IGUAL reduce production expr -> CST 
+-- On ESQUARE reduce production expr -> CST 
+-- On DSQUARE reduce production expr -> CST 
+-- On DIVIDIR reduce production expr -> CST 
+-- On DIF reduce production expr -> CST 
+-- On AND reduce production expr -> CST 
+
+State 69:
+expr -> ESQUARE CST TO . expr DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 70
+
+State 70:
+expr -> ESQUARE CST TO expr . DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+expr -> expr . MAIS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DSQUARE shift to state 71
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 71:
+expr -> ESQUARE CST TO expr DSQUARE . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VIRGULA reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On VEZES reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On THEN reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On OR reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On OF reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On NEWLINE reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On MENOS reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On MENORIGUAL reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On MENOR reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On MAIS reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On MAIORIGUAL reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On MAIOR reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On IGUAL reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On FILLED reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On ESQUARE reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On DSQUARE reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On DPAREN reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On DO reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On DIVIDIR reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On DIF reduce production expr -> ESQUARE CST TO expr DSQUARE 
+-- On AND reduce production expr -> ESQUARE CST TO expr DSQUARE 
+
+State 72:
+expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) . DSQUARE [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On DSQUARE shift to state 73
+
+State 73:
+expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE . [ VIRGULA VEZES THEN OR OF NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DSQUARE DPAREN DO DIVIDIR DIF AND ]
+-- On VIRGULA reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On VEZES reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On THEN reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On OR reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On OF reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On NEWLINE reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On MENOS reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On MENORIGUAL reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On MENOR reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On MAIS reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On MAIORIGUAL reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On MAIOR reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On IGUAL reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On FILLED reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On ESQUARE reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On DSQUARE reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On DPAREN reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On DO reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On DIVIDIR reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On DIF reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+-- On AND reduce production expr -> ESQUARE loption(separated_nonempty_list(VIRGULA,expr)) DSQUARE 
+
+State 74:
+instr_simples -> TYPE ident IGUAL ARRAY . expr OF expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 75
+
+State 75:
+expr -> expr . MAIS expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+instr_simples -> TYPE ident IGUAL ARRAY expr . OF expr [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On OF shift to state 76
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 76:
+instr_simples -> TYPE ident IGUAL ARRAY expr OF . expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 77
+
+State 77:
+expr -> expr . MAIS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> TYPE ident IGUAL ARRAY expr OF expr . [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On NEWLINE reduce production instr_simples -> TYPE ident IGUAL ARRAY expr OF expr 
+-- On FILLED reduce production instr_simples -> TYPE ident IGUAL ARRAY expr OF expr 
+
+State 78:
+expr -> expr . MAIS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> TYPE ident IGUAL expr . [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On NEWLINE reduce production instr_simples -> TYPE ident IGUAL expr 
+-- On FILLED reduce production instr_simples -> TYPE ident IGUAL expr 
+
+State 79:
+instr_simples -> RETURN . expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 80
+
+State 80:
+expr -> expr . MAIS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> RETURN expr . [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On NEWLINE reduce production instr_simples -> RETURN expr 
+-- On FILLED reduce production instr_simples -> RETURN expr 
+
+State 81:
+instr_simples -> PRINT . EPAREN expr DPAREN [ NEWLINE FILLED ]
+-- On EPAREN shift to state 82
+
+State 82:
+instr_simples -> PRINT EPAREN . expr DPAREN [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 83
+
+State 83:
+expr -> expr . MAIS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DPAREN DIVIDIR DIF AND ]
+instr_simples -> PRINT EPAREN expr . DPAREN [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DPAREN shift to state 84
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 84:
+instr_simples -> PRINT EPAREN expr DPAREN . [ NEWLINE FILLED ]
+-- On NEWLINE reduce production instr_simples -> PRINT EPAREN expr DPAREN 
+-- On FILLED reduce production instr_simples -> PRINT EPAREN expr DPAREN 
+
+State 85:
+instr_simples -> VAR ident AS ARRAY . expr OF typ FILLED BY expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 86
+
+State 86:
+expr -> expr . MAIS expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR OF MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+instr_simples -> VAR ident AS ARRAY expr . OF typ FILLED BY expr [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On OF shift to state 87
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 87:
+instr_simples -> VAR ident AS ARRAY expr OF . typ FILLED BY expr [ NEWLINE FILLED ]
+-- On INTTYPE shift to state 5
+-- On BOOLTYPE shift to state 6
+-- On typ shift to state 88
+
+State 88:
+instr_simples -> VAR ident AS ARRAY expr OF typ . FILLED BY expr [ NEWLINE FILLED ]
+-- On FILLED shift to state 89
+
+State 89:
+instr_simples -> VAR ident AS ARRAY expr OF typ FILLED . BY expr [ NEWLINE FILLED ]
+-- On BY shift to state 90
+
+State 90:
+instr_simples -> VAR ident AS ARRAY expr OF typ FILLED BY . expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 91
+
+State 91:
+expr -> expr . MAIS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> VAR ident AS ARRAY expr OF typ FILLED BY expr . [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On NEWLINE reduce production instr_simples -> VAR ident AS ARRAY expr OF typ FILLED BY expr 
+-- On FILLED reduce production instr_simples -> VAR ident AS ARRAY expr OF typ FILLED BY expr 
+
+State 92:
+instr_simples -> VAR ident AS typ . IGUAL expr [ NEWLINE FILLED ]
+-- On IGUAL shift to state 93
+
+State 93:
+instr_simples -> VAR ident AS typ IGUAL . expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 94
+
+State 94:
+expr -> expr . MAIS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> VAR ident AS typ IGUAL expr . [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On NEWLINE reduce production instr_simples -> VAR ident AS typ IGUAL expr 
+-- On FILLED reduce production instr_simples -> VAR ident AS typ IGUAL expr 
+
+State 95:
+instr_simples -> VAR ident AS instr_simples . FILLED BY expr [ NEWLINE FILLED ]
+-- On FILLED shift to state 96
+
+State 96:
+instr_simples -> VAR ident AS instr_simples FILLED . BY expr [ NEWLINE FILLED ]
+-- On BY shift to state 97
+
+State 97:
+instr_simples -> VAR ident AS instr_simples FILLED BY . expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 98
+
+State 98:
+expr -> expr . MAIS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> VAR ident AS instr_simples FILLED BY expr . [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On NEWLINE reduce production instr_simples -> VAR ident AS instr_simples FILLED BY expr 
+-- On FILLED reduce production instr_simples -> VAR ident AS instr_simples FILLED BY expr 
+
+State 99:
+expr -> expr . MAIS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> expr . ESQUARE expr DSQUARE DEFINED expr [ NEWLINE FILLED ]
+instr_simples -> expr . [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 100
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On NEWLINE reduce production instr_simples -> expr 
+-- On FILLED reduce production instr_simples -> expr 
+
+State 100:
+expr -> expr ESQUARE . expr DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> expr ESQUARE . expr DSQUARE DEFINED expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 101
+
+State 101:
+expr -> expr . MAIS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DSQUARE DIVIDIR DIF AND ]
+expr -> expr ESQUARE expr . DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> expr ESQUARE expr . DSQUARE DEFINED expr [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DSQUARE shift to state 102
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 102:
+expr -> expr ESQUARE expr DSQUARE . [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> expr ESQUARE expr DSQUARE . DEFINED expr [ NEWLINE FILLED ]
+-- On DEFINED shift to state 103
+-- On VEZES reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On OR reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On NEWLINE reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MENOS reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MENORIGUAL reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MENOR reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MAIS reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MAIORIGUAL reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On MAIOR reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On IGUAL reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On FILLED reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On ESQUARE reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On DIVIDIR reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On DIF reduce production expr -> expr ESQUARE expr DSQUARE 
+-- On AND reduce production expr -> expr ESQUARE expr DSQUARE 
+
+State 103:
+instr_simples -> expr ESQUARE expr DSQUARE DEFINED . expr [ NEWLINE FILLED ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 104
+
+State 104:
+expr -> expr . MAIS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR NEWLINE MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL FILLED ESQUARE DIVIDIR DIF AND ]
+instr_simples -> expr ESQUARE expr DSQUARE DEFINED expr . [ NEWLINE FILLED ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+-- On NEWLINE reduce production instr_simples -> expr ESQUARE expr DSQUARE DEFINED expr 
+-- On FILLED reduce production instr_simples -> expr ESQUARE expr DSQUARE DEFINED expr 
+
+State 105:
+body -> NEWLINE . EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE [ VAR TYPE SEMICOLON RETURN PRINT IF ID FOR ESQUARE EPAREN EOF ELSE DEF DBRACE CST ]
+-- On EBRACE shift to state 106
+
+State 106:
+body -> NEWLINE EBRACE . separated_nonempty_list(SEMICOLON,instr) DBRACE [ VAR TYPE SEMICOLON RETURN PRINT IF ID FOR ESQUARE EPAREN EOF ELSE DEF DBRACE CST ]
+-- On VAR shift to state 15
+-- On TYPE shift to state 18
+-- On RETURN shift to state 79
+-- On PRINT shift to state 81
+-- On IF shift to state 107
+-- On ID shift to state 8
+-- On FOR shift to state 110
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On separated_nonempty_list(SEMICOLON,instr) shift to state 124
+-- On instr_simples shift to state 115
+-- On instr shift to state 126
+-- On ident shift to state 25
+-- On expr shift to state 99
+
+State 107:
+instr -> IF . expr THEN body [ SEMICOLON EOF DBRACE ]
+instr -> IF . expr THEN body ELSE body [ SEMICOLON EOF DBRACE ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 108
+
+State 108:
+expr -> expr . MAIS expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES THEN OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DIVIDIR DIF AND ]
+instr -> IF expr . THEN body [ SEMICOLON EOF DBRACE ]
+instr -> IF expr . THEN body ELSE body [ SEMICOLON EOF DBRACE ]
+-- On VEZES shift to state 33
+-- On THEN shift to state 109
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 109:
+instr -> IF expr THEN . body [ SEMICOLON EOF DBRACE ]
+instr -> IF expr THEN . body ELSE body [ SEMICOLON EOF DBRACE ]
+-- On VAR shift to state 15
+-- On TYPE shift to state 18
+-- On RETURN shift to state 79
+-- On PRINT shift to state 81
+-- On NEWLINE shift to state 105
+-- On IF shift to state 107
+-- On ID shift to state 8
+-- On FOR shift to state 110
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On instr_simples shift to state 115
+-- On instr shift to state 117
+-- On ident shift to state 25
+-- On expr shift to state 99
+-- On body shift to state 121
+
+State 110:
+instr -> FOR . ident IN expr DO body [ SEMICOLON EOF DBRACE ]
+-- On ID shift to state 8
+-- On ident shift to state 111
+
+State 111:
+instr -> FOR ident . IN expr DO body [ SEMICOLON EOF DBRACE ]
+-- On IN shift to state 112
+
+State 112:
+instr -> FOR ident IN . expr DO body [ SEMICOLON EOF DBRACE ]
+-- On ID shift to state 8
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On ident shift to state 25
+-- On expr shift to state 113
+
+State 113:
+expr -> expr . MAIS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . MENOS expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . VEZES expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . DIVIDIR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . IGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . DIF expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . MAIOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . MAIORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . MENOR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . MENORIGUAL expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . AND expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . OR expr [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+expr -> expr . ESQUARE expr DSQUARE [ VEZES OR MENOS MENORIGUAL MENOR MAIS MAIORIGUAL MAIOR IGUAL ESQUARE DO DIVIDIR DIF AND ]
+instr -> FOR ident IN expr . DO body [ SEMICOLON EOF DBRACE ]
+-- On VEZES shift to state 33
+-- On OR shift to state 37
+-- On MENOS shift to state 39
+-- On MENORIGUAL shift to state 43
+-- On MENOR shift to state 47
+-- On MAIS shift to state 45
+-- On MAIORIGUAL shift to state 49
+-- On MAIOR shift to state 51
+-- On IGUAL shift to state 53
+-- On ESQUARE shift to state 35
+-- On DO shift to state 114
+-- On DIVIDIR shift to state 41
+-- On DIF shift to state 55
+-- On AND shift to state 57
+
+State 114:
+instr -> FOR ident IN expr DO . body [ SEMICOLON EOF DBRACE ]
+-- On VAR shift to state 15
+-- On TYPE shift to state 18
+-- On RETURN shift to state 79
+-- On PRINT shift to state 81
+-- On NEWLINE shift to state 105
+-- On IF shift to state 107
+-- On ID shift to state 8
+-- On FOR shift to state 110
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On instr_simples shift to state 115
+-- On instr shift to state 117
+-- On ident shift to state 25
+-- On expr shift to state 99
+-- On body shift to state 120
+
+State 115:
+instr -> instr_simples . NEWLINE [ SEMICOLON EOF DBRACE ]
+-- On NEWLINE shift to state 116
+
+State 116:
+instr -> instr_simples NEWLINE . [ SEMICOLON EOF DBRACE ]
+-- On SEMICOLON reduce production instr -> instr_simples NEWLINE 
+-- On EOF reduce production instr -> instr_simples NEWLINE 
+-- On DBRACE reduce production instr -> instr_simples NEWLINE 
+
+State 117:
+body -> instr . SEMICOLON NEWLINE [ VAR TYPE SEMICOLON RETURN PRINT IF ID FOR ESQUARE EPAREN EOF ELSE DEF DBRACE CST ]
+-- On SEMICOLON shift to state 118
+
+State 118:
+body -> instr SEMICOLON . NEWLINE [ VAR TYPE SEMICOLON RETURN PRINT IF ID FOR ESQUARE EPAREN EOF ELSE DEF DBRACE CST ]
+-- On NEWLINE shift to state 119
+
+State 119:
+body -> instr SEMICOLON NEWLINE . [ VAR TYPE SEMICOLON RETURN PRINT IF ID FOR ESQUARE EPAREN EOF ELSE DEF DBRACE CST ]
+-- On VAR reduce production body -> instr SEMICOLON NEWLINE 
+-- On TYPE reduce production body -> instr SEMICOLON NEWLINE 
+-- On SEMICOLON reduce production body -> instr SEMICOLON NEWLINE 
+-- On RETURN reduce production body -> instr SEMICOLON NEWLINE 
+-- On PRINT reduce production body -> instr SEMICOLON NEWLINE 
+-- On IF reduce production body -> instr SEMICOLON NEWLINE 
+-- On ID reduce production body -> instr SEMICOLON NEWLINE 
+-- On FOR reduce production body -> instr SEMICOLON NEWLINE 
+-- On ESQUARE reduce production body -> instr SEMICOLON NEWLINE 
+-- On EPAREN reduce production body -> instr SEMICOLON NEWLINE 
+-- On EOF reduce production body -> instr SEMICOLON NEWLINE 
+-- On ELSE reduce production body -> instr SEMICOLON NEWLINE 
+-- On DEF reduce production body -> instr SEMICOLON NEWLINE 
+-- On DBRACE reduce production body -> instr SEMICOLON NEWLINE 
+-- On CST reduce production body -> instr SEMICOLON NEWLINE 
+
+State 120:
+instr -> FOR ident IN expr DO body . [ SEMICOLON EOF DBRACE ]
+-- On SEMICOLON reduce production instr -> FOR ident IN expr DO body 
+-- On EOF reduce production instr -> FOR ident IN expr DO body 
+-- On DBRACE reduce production instr -> FOR ident IN expr DO body 
+
+State 121:
+instr -> IF expr THEN body . [ SEMICOLON EOF DBRACE ]
+instr -> IF expr THEN body . ELSE body [ SEMICOLON EOF DBRACE ]
+-- On ELSE shift to state 122
+-- On SEMICOLON reduce production instr -> IF expr THEN body 
+-- On EOF reduce production instr -> IF expr THEN body 
+-- On DBRACE reduce production instr -> IF expr THEN body 
+
+State 122:
+instr -> IF expr THEN body ELSE . body [ SEMICOLON EOF DBRACE ]
+-- On VAR shift to state 15
+-- On TYPE shift to state 18
+-- On RETURN shift to state 79
+-- On PRINT shift to state 81
+-- On NEWLINE shift to state 105
+-- On IF shift to state 107
+-- On ID shift to state 8
+-- On FOR shift to state 110
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On instr_simples shift to state 115
+-- On instr shift to state 117
+-- On ident shift to state 25
+-- On expr shift to state 99
+-- On body shift to state 123
+
+State 123:
+instr -> IF expr THEN body ELSE body . [ SEMICOLON EOF DBRACE ]
+-- On SEMICOLON reduce production instr -> IF expr THEN body ELSE body 
+-- On EOF reduce production instr -> IF expr THEN body ELSE body 
+-- On DBRACE reduce production instr -> IF expr THEN body ELSE body 
+
+State 124:
+body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) . DBRACE [ VAR TYPE SEMICOLON RETURN PRINT IF ID FOR ESQUARE EPAREN EOF ELSE DEF DBRACE CST ]
+-- On DBRACE shift to state 125
+
+State 125:
+body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE . [ VAR TYPE SEMICOLON RETURN PRINT IF ID FOR ESQUARE EPAREN EOF ELSE DEF DBRACE CST ]
+-- On VAR reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On TYPE reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On SEMICOLON reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On RETURN reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On PRINT reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On IF reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On ID reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On FOR reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On ESQUARE reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On EPAREN reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On EOF reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On ELSE reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On DEF reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On DBRACE reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+-- On CST reduce production body -> NEWLINE EBRACE separated_nonempty_list(SEMICOLON,instr) DBRACE 
+
+State 126:
+separated_nonempty_list(SEMICOLON,instr) -> instr . [ EOF DBRACE ]
+separated_nonempty_list(SEMICOLON,instr) -> instr . SEMICOLON separated_nonempty_list(SEMICOLON,instr) [ EOF DBRACE ]
+-- On SEMICOLON shift to state 127
+-- On EOF reduce production separated_nonempty_list(SEMICOLON,instr) -> instr 
+-- On DBRACE reduce production separated_nonempty_list(SEMICOLON,instr) -> instr 
+
+State 127:
+separated_nonempty_list(SEMICOLON,instr) -> instr SEMICOLON . separated_nonempty_list(SEMICOLON,instr) [ EOF DBRACE ]
+-- On VAR shift to state 15
+-- On TYPE shift to state 18
+-- On RETURN shift to state 79
+-- On PRINT shift to state 81
+-- On IF shift to state 107
+-- On ID shift to state 8
+-- On FOR shift to state 110
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On separated_nonempty_list(SEMICOLON,instr) shift to state 128
+-- On instr_simples shift to state 115
+-- On instr shift to state 126
+-- On ident shift to state 25
+-- On expr shift to state 99
+
+State 128:
+separated_nonempty_list(SEMICOLON,instr) -> instr SEMICOLON separated_nonempty_list(SEMICOLON,instr) . [ EOF DBRACE ]
+-- On EOF reduce production separated_nonempty_list(SEMICOLON,instr) -> instr SEMICOLON separated_nonempty_list(SEMICOLON,instr) 
+-- On DBRACE reduce production separated_nonempty_list(SEMICOLON,instr) -> instr SEMICOLON separated_nonempty_list(SEMICOLON,instr) 
+
+State 129:
+func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body . [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN DEF CST ]
+-- On VAR reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On TYPE reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On RETURN reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On PRINT reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On IF reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On ID reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On FOR reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On ESQUARE reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On EPAREN reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On DEF reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+-- On CST reduce production func -> DEF typ ident EPAREN loption(separated_nonempty_list(VIRGULA,ident)) DPAREN AS body 
+
+State 130:
+separated_nonempty_list(VIRGULA,ident) -> ident . [ DPAREN ]
+separated_nonempty_list(VIRGULA,ident) -> ident . VIRGULA separated_nonempty_list(VIRGULA,ident) [ DPAREN ]
+-- On VIRGULA shift to state 131
+-- On DPAREN reduce production separated_nonempty_list(VIRGULA,ident) -> ident 
+
+State 131:
+separated_nonempty_list(VIRGULA,ident) -> ident VIRGULA . separated_nonempty_list(VIRGULA,ident) [ DPAREN ]
+-- On ID shift to state 8
+-- On separated_nonempty_list(VIRGULA,ident) shift to state 132
+-- On ident shift to state 130
+
+State 132:
+separated_nonempty_list(VIRGULA,ident) -> ident VIRGULA separated_nonempty_list(VIRGULA,ident) . [ DPAREN ]
+-- On DPAREN reduce production separated_nonempty_list(VIRGULA,ident) -> ident VIRGULA separated_nonempty_list(VIRGULA,ident) 
+
+State 133:
+prog -> option(NEWLINE) list(func) . separated_nonempty_list(SEMICOLON,instr) EOF [ # ]
+-- On VAR shift to state 15
+-- On TYPE shift to state 18
+-- On RETURN shift to state 79
+-- On PRINT shift to state 81
+-- On IF shift to state 107
+-- On ID shift to state 8
+-- On FOR shift to state 110
+-- On ESQUARE shift to state 21
+-- On EPAREN shift to state 22
+-- On CST shift to state 24
+-- On separated_nonempty_list(SEMICOLON,instr) shift to state 134
+-- On instr_simples shift to state 115
+-- On instr shift to state 126
+-- On ident shift to state 25
+-- On expr shift to state 99
+
+State 134:
+prog -> option(NEWLINE) list(func) separated_nonempty_list(SEMICOLON,instr) . EOF [ # ]
+-- On EOF shift to state 135
+
+State 135:
+prog -> option(NEWLINE) list(func) separated_nonempty_list(SEMICOLON,instr) EOF . [ # ]
+-- On # reduce production prog -> option(NEWLINE) list(func) separated_nonempty_list(SEMICOLON,instr) EOF 
+
+State 136:
+list(func) -> func . list(func) [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN CST ]
+-- On DEF shift to state 4
+-- On list(func) shift to state 137
+-- On func shift to state 136
+-- On VAR reduce production list(func) -> 
+-- On TYPE reduce production list(func) -> 
+-- On RETURN reduce production list(func) -> 
+-- On PRINT reduce production list(func) -> 
+-- On IF reduce production list(func) -> 
+-- On ID reduce production list(func) -> 
+-- On FOR reduce production list(func) -> 
+-- On ESQUARE reduce production list(func) -> 
+-- On EPAREN reduce production list(func) -> 
+-- On CST reduce production list(func) -> 
+
+State 137:
+list(func) -> func list(func) . [ VAR TYPE RETURN PRINT IF ID FOR ESQUARE EPAREN CST ]
+-- On VAR reduce production list(func) -> func list(func) 
+-- On TYPE reduce production list(func) -> func list(func) 
+-- On RETURN reduce production list(func) -> func list(func) 
+-- On PRINT reduce production list(func) -> func list(func) 
+-- On IF reduce production list(func) -> func list(func) 
+-- On ID reduce production list(func) -> func list(func) 
+-- On FOR reduce production list(func) -> func list(func) 
+-- On ESQUARE reduce production list(func) -> func list(func) 
+-- On EPAREN reduce production list(func) -> func list(func) 
+-- On CST reduce production list(func) -> func list(func) 
+

@@ -1,0 +1,884 @@
+"main.ml" 7 133 137 "main.ml" 7 133 147
+type(
+  bool ref
+)
+ident(
+  def parse_only "main.ml" 10 199 199 "main.ml" 0 0 -1
+)
+"main.ml" 7 133 150 "main.ml" 7 133 153
+type(
+  bool -> bool ref
+)
+ident(
+  int_ref Stdlib.ref "stdlib.mli" 1159 44364 44364 "stdlib.mli" 1159 44364 44408
+)
+"main.ml" 7 133 154 "main.ml" 7 133 159
+type(
+  bool
+)
+"main.ml" 7 133 150 "main.ml" 7 133 159
+type(
+  bool ref
+)
+"main.ml" 10 199 203 "main.ml" 10 199 208
+type(
+  string ref
+)
+ident(
+  def ifile "main.ml" 11 218 218 "main.ml" 0 0 -1
+)
+"main.ml" 10 199 211 "main.ml" 10 199 214
+type(
+  string -> string ref
+)
+ident(
+  int_ref Stdlib.ref "stdlib.mli" 1159 44364 44364 "stdlib.mli" 1159 44364 44408
+)
+"main.ml" 10 199 215 "main.ml" 10 199 217
+type(
+  string
+)
+"main.ml" 10 199 211 "main.ml" 10 199 217
+type(
+  string ref
+)
+"main.ml" 11 218 222 "main.ml" 11 218 227
+type(
+  string ref
+)
+ident(
+  def ofile "main.ml" 13 238 238 "main.ml" 0 0 -1
+)
+"main.ml" 11 218 230 "main.ml" 11 218 233
+type(
+  string -> string ref
+)
+ident(
+  int_ref Stdlib.ref "stdlib.mli" 1159 44364 44364 "stdlib.mli" 1159 44364 44408
+)
+"main.ml" 11 218 234 "main.ml" 11 218 236
+type(
+  string
+)
+"main.ml" 11 218 230 "main.ml" 11 218 236
+type(
+  string ref
+)
+"main.ml" 13 238 242 "main.ml" 13 238 250
+type(
+  'a ref -> 'a -> unit
+)
+ident(
+  def set_file "main.ml" 16 359 359 "main.ml" 0 0 -1
+)
+"main.ml" 13 238 251 "main.ml" 13 238 252
+type(
+  'a ref
+)
+ident(
+  def f "main.ml" 13 238 253 "main.ml" 13 238 263
+)
+"main.ml" 13 238 253 "main.ml" 13 238 254
+type(
+  'a
+)
+ident(
+  def s "main.ml" 13 238 257 "main.ml" 13 238 263
+)
+"main.ml" 13 238 257 "main.ml" 13 238 258
+type(
+  'a ref
+)
+ident(
+  int_ref f "main.ml" 13 238 251 "main.ml" 13 238 252
+)
+"main.ml" 13 238 259 "main.ml" 13 238 261
+type(
+  'a ref -> 'a -> unit
+)
+ident(
+  int_ref Stdlib.( := ) "stdlib.mli" 1168 44676 44676 "stdlib.mli" 1168 44676 44729
+)
+"main.ml" 13 238 262 "main.ml" 13 238 263
+type(
+  'a
+)
+ident(
+  int_ref s "main.ml" 13 238 253 "main.ml" 13 238 254
+)
+"main.ml" 13 238 257 "main.ml" 13 238 263
+type(
+  unit
+)
+"main.ml" 16 359 363 "main.ml" 16 359 370
+type(
+  (string * Arg.spec * string) list
+)
+ident(
+  def options "main.ml" 22 541 541 "main.ml" 0 0 -1
+)
+"main.ml" 17 373 376 "main.ml" 17 373 389
+type(
+  string
+)
+"main.ml" 17 373 399 "main.ml" 17 373 409
+type(
+  bool ref
+)
+ident(
+  int_ref parse_only "main.ml" 7 133 137 "main.ml" 7 133 147
+)
+"main.ml" 17 373 391 "main.ml" 17 373 409
+type(
+  Arg.spec
+)
+"main.ml" 18 411 414 "main.ml" 18 411 444
+type(
+  string
+)
+"main.ml" 17 373 376 "main.ml" 18 411 444
+type(
+  string * Arg.spec * string
+)
+"main.ml" 19 446 449 "main.ml" 19 446 453
+type(
+  string
+)
+"main.ml" 19 446 467 "main.ml" 19 446 475
+type(
+  string ref -> string -> unit
+)
+ident(
+  int_ref set_file "main.ml" 13 238 242 "main.ml" 13 238 250
+)
+"main.ml" 19 446 476 "main.ml" 19 446 481
+type(
+  string ref
+)
+ident(
+  int_ref ofile "main.ml" 11 218 222 "main.ml" 11 218 227
+)
+"main.ml" 19 446 466 "main.ml" 19 446 482
+type(
+  string -> unit
+)
+"main.ml" 19 446 455 "main.ml" 19 446 482
+type(
+  Arg.spec
+)
+"main.ml" 20 484 487 "main.ml" 20 484 538
+type(
+  string
+)
+"main.ml" 19 446 449 "main.ml" 20 484 538
+type(
+  string * Arg.spec * string
+)
+"main.ml" 17 373 375 "main.ml" 20 484 539
+type(
+  (string * Arg.spec * string) list
+)
+"main.ml" 22 541 545 "main.ml" 22 541 550
+type(
+  string
+)
+ident(
+  def usage "main.ml" 25 639 639 "main.ml" 0 0 -1
+)
+"main.ml" 22 541 553 "main.ml" 22 541 585
+type(
+  string
+)
+"main.ml" 25 639 643 "main.ml" 25 639 655
+type(
+  Lexing.position -> unit
+)
+ident(
+  def localisation "main.ml" 30 804 804 "main.ml" 0 0 -1
+)
+"main.ml" 25 639 656 "main.ml" 25 639 659
+type(
+  Lexing.position
+)
+ident(
+  def pos "main.ml" 26 662 664 "main.ml" 28 732 802
+)
+"main.ml" 26 662 668 "main.ml" 26 662 669
+type(
+  int
+)
+ident(
+  def l "main.ml" 27 688 690 "main.ml" 28 732 802
+)
+"main.ml" 26 662 672 "main.ml" 26 662 675
+type(
+  Lexing.position
+)
+ident(
+  int_ref pos "main.ml" 25 639 656 "main.ml" 25 639 659
+)
+"main.ml" 26 662 672 "main.ml" 26 662 684
+type(
+  int
+)
+"main.ml" 27 688 694 "main.ml" 27 688 695
+type(
+  int
+)
+ident(
+  def c "main.ml" 28 732 734 "main.ml" 28 732 802
+)
+"main.ml" 27 688 698 "main.ml" 27 688 701
+type(
+  Lexing.position
+)
+ident(
+  int_ref pos "main.ml" 25 639 656 "main.ml" 25 639 659
+)
+"main.ml" 27 688 698 "main.ml" 27 688 710
+type(
+  int
+)
+"main.ml" 27 688 711 "main.ml" 27 688 712
+type(
+  int -> int -> int
+)
+ident(
+  int_ref Stdlib.( - ) "stdlib.mli" 343 13509 13509 "stdlib.mli" 343 13509 13555
+)
+"main.ml" 27 688 713 "main.ml" 27 688 716
+type(
+  Lexing.position
+)
+ident(
+  int_ref pos "main.ml" 25 639 656 "main.ml" 25 639 659
+)
+"main.ml" 27 688 713 "main.ml" 27 688 724
+type(
+  int
+)
+"main.ml" 27 688 698 "main.ml" 27 688 724
+type(
+  int
+)
+"main.ml" 27 688 725 "main.ml" 27 688 726
+type(
+  int -> int -> int
+)
+ident(
+  int_ref Stdlib.( + ) "stdlib.mli" 338 13360 13360 "stdlib.mli" 338 13360 13406
+)
+"main.ml" 27 688 727 "main.ml" 27 688 728
+type(
+  int
+)
+"main.ml" 27 688 698 "main.ml" 27 688 728
+type(
+  int
+)
+"main.ml" 28 732 734 "main.ml" 28 732 741
+type(
+  (string -> int -> int -> int -> unit, Format.formatter, unit) format ->
+  string -> int -> int -> int -> unit
+)
+ident(
+  int_ref Stdlib.Format.eprintf "format.mli" 1178 46011 46011 "format.mli" 1178 46011 46059
+)
+"main.ml" 28 732 742 "main.ml" 28 732 785
+type(
+  (string -> int -> int -> int -> unit, Format.formatter, unit) format
+)
+"main.ml" 28 732 786 "main.ml" 28 732 787
+type(
+  string ref -> string
+)
+ident(
+  int_ref Stdlib.( ! ) "stdlib.mli" 1162 44470 44470 "stdlib.mli" 1162 44470 44511
+)
+"main.ml" 28 732 787 "main.ml" 28 732 792
+type(
+  string ref
+)
+ident(
+  int_ref ifile "main.ml" 10 199 203 "main.ml" 10 199 208
+)
+"main.ml" 28 732 786 "main.ml" 28 732 792
+type(
+  string
+)
+"main.ml" 28 732 793 "main.ml" 28 732 794
+type(
+  int
+)
+ident(
+  int_ref l "main.ml" 26 662 668 "main.ml" 26 662 669
+)
+"main.ml" 28 732 796 "main.ml" 28 732 797
+type(
+  int
+)
+ident(
+  int_ref c "main.ml" 27 688 694 "main.ml" 27 688 695
+)
+"main.ml" 28 732 797 "main.ml" 28 732 798
+type(
+  int -> int -> int
+)
+ident(
+  int_ref Stdlib.( - ) "stdlib.mli" 343 13509 13509 "stdlib.mli" 343 13509 13555
+)
+"main.ml" 28 732 798 "main.ml" 28 732 799
+type(
+  int
+)
+"main.ml" 28 732 795 "main.ml" 28 732 800
+type(
+  int
+)
+"main.ml" 28 732 801 "main.ml" 28 732 802
+type(
+  int
+)
+ident(
+  int_ref c "main.ml" 27 688 694 "main.ml" 27 688 695
+)
+"main.ml" 28 732 734 "main.ml" 28 732 802
+type(
+  unit
+)
+"main.ml" 27 688 690 "main.ml" 28 732 802
+type(
+  unit
+)
+"main.ml" 26 662 664 "main.ml" 28 732 802
+type(
+  unit
+)
+"main.ml" 30 804 808 "main.ml" 30 804 810
+type(
+  unit
+)
+"main.ml" 32 849 851 "main.ml" 32 849 860
+type(
+  (Arg.key * Arg.spec * Arg.doc) list ->
+  Arg.anon_fun -> Arg.usage_msg -> unit
+)
+ident(
+  int_ref Stdlib.Arg.parse "arg.mli" 77 4335 4335 "arg.mli" 78 4347 4405
+)
+"main.ml" 32 849 861 "main.ml" 32 849 868
+type(
+  (Arg.key * Arg.spec * Arg.doc) list
+)
+ident(
+  int_ref options "main.ml" 16 359 363 "main.ml" 16 359 370
+)
+"main.ml" 32 849 870 "main.ml" 32 849 878
+type(
+  string ref -> Arg.anon_fun
+)
+ident(
+  int_ref set_file "main.ml" 13 238 242 "main.ml" 13 238 250
+)
+"main.ml" 32 849 879 "main.ml" 32 849 884
+type(
+  string ref
+)
+ident(
+  int_ref ifile "main.ml" 10 199 203 "main.ml" 10 199 208
+)
+"main.ml" 32 849 869 "main.ml" 32 849 885
+type(
+  Arg.anon_fun
+)
+"main.ml" 32 849 886 "main.ml" 32 849 891
+type(
+  Arg.usage_msg
+)
+ident(
+  int_ref usage "main.ml" 22 541 545 "main.ml" 22 541 550
+)
+"main.ml" 32 849 851 "main.ml" 32 849 891
+type(
+  unit
+)
+"main.ml" 35 963 968 "main.ml" 35 963 969
+type(
+  string ref -> string
+)
+ident(
+  int_ref Stdlib.( ! ) "stdlib.mli" 1162 44470 44470 "stdlib.mli" 1162 44470 44511
+)
+"main.ml" 35 963 969 "main.ml" 35 963 974
+type(
+  string ref
+)
+ident(
+  int_ref ifile "main.ml" 10 199 203 "main.ml" 10 199 208
+)
+"main.ml" 35 963 968 "main.ml" 35 963 974
+type(
+  string
+)
+"main.ml" 35 963 974 "main.ml" 35 963 975
+type(
+  string -> string -> bool
+)
+ident(
+  int_ref Stdlib.( = ) "stdlib.mli" 118 4976 4976 "stdlib.mli" 118 4976 5020
+)
+"main.ml" 35 963 975 "main.ml" 35 963 977
+type(
+  string
+)
+"main.ml" 35 963 968 "main.ml" 35 963 977
+type(
+  bool
+)
+"main.ml" 35 963 989 "main.ml" 35 963 996
+type(
+  (unit, Format.formatter, unit) format -> unit
+)
+ident(
+  int_ref Stdlib.Format.eprintf "format.mli" 1178 46011 46011 "format.mli" 1178 46011 46059
+)
+"main.ml" 35 963 997 "main.ml" 35 963 1032
+type(
+  (unit, Format.formatter, unit) format
+)
+"main.ml" 35 963 989 "main.ml" 35 963 1032
+type(
+  unit
+)
+"main.ml" 35 963 1034 "main.ml" 35 963 1038
+type(
+  int -> unit
+)
+ident(
+  int_ref Stdlib.exit "stdlib.mli" 1291 49826 49826 "stdlib.mli" 1291 49826 49846
+)
+"main.ml" 35 963 1039 "main.ml" 35 963 1040
+type(
+  int
+)
+"main.ml" 35 963 1034 "main.ml" 35 963 1040
+type(
+  unit
+)
+"main.ml" 35 963 983 "main.ml" 35 963 1044
+type(
+  unit
+)
+"main.ml" 35 963 965 "main.ml" 35 963 1044
+type(
+  unit
+)
+"main.ml" 38 1099 1104 "main.ml" 38 1099 1107
+type(
+  bool -> bool
+)
+ident(
+  int_ref Stdlib.not "stdlib.mli" 208 8814 8814 "stdlib.mli" 208 8814 8854
+)
+"main.ml" 38 1099 1109 "main.ml" 38 1099 1130
+type(
+  string -> string -> bool
+)
+ident(
+  int_ref Stdlib.Filename.check_suffix "filename.mli" 43 2026 2026 "filename.mli" 43 2026 2069
+)
+"main.ml" 38 1099 1131 "main.ml" 38 1099 1132
+type(
+  string ref -> string
+)
+ident(
+  int_ref Stdlib.( ! ) "stdlib.mli" 1162 44470 44470 "stdlib.mli" 1162 44470 44511
+)
+"main.ml" 38 1099 1132 "main.ml" 38 1099 1137
+type(
+  string ref
+)
+ident(
+  int_ref ifile "main.ml" 10 199 203 "main.ml" 10 199 208
+)
+"main.ml" 38 1099 1131 "main.ml" 38 1099 1137
+type(
+  string
+)
+"main.ml" 38 1099 1138 "main.ml" 38 1099 1143
+type(
+  string
+)
+"main.ml" 38 1099 1108 "main.ml" 38 1099 1144
+type(
+  bool
+)
+"main.ml" 38 1099 1104 "main.ml" 38 1099 1144
+type(
+  bool
+)
+"main.ml" 39 1156 1160 "main.ml" 39 1156 1167
+type(
+  (unit, Format.formatter, unit) format -> unit
+)
+ident(
+  int_ref Stdlib.Format.eprintf "format.mli" 1178 46011 46011 "format.mli" 1178 46011 46059
+)
+"main.ml" 39 1156 1168 "main.ml" 39 1156 1220
+type(
+  (unit, Format.formatter, unit) format
+)
+"main.ml" 39 1156 1160 "main.ml" 39 1156 1220
+type(
+  unit
+)
+"main.ml" 40 1222 1226 "main.ml" 40 1222 1235
+type(
+  (Arg.key * Arg.spec * Arg.doc) list -> Arg.usage_msg -> unit
+)
+ident(
+  int_ref Stdlib.Arg.usage "arg.mli" 160 7991 7991 "arg.mli" 160 7991 8047
+)
+"main.ml" 40 1222 1236 "main.ml" 40 1222 1243
+type(
+  (Arg.key * Arg.spec * Arg.doc) list
+)
+ident(
+  int_ref options "main.ml" 16 359 363 "main.ml" 16 359 370
+)
+"main.ml" 40 1222 1244 "main.ml" 40 1222 1249
+type(
+  Arg.usage_msg
+)
+ident(
+  int_ref usage "main.ml" 22 541 545 "main.ml" 22 541 550
+)
+"main.ml" 40 1222 1226 "main.ml" 40 1222 1249
+type(
+  unit
+)
+"main.ml" 41 1251 1255 "main.ml" 41 1251 1259
+type(
+  int -> unit
+)
+ident(
+  int_ref Stdlib.exit "stdlib.mli" 1291 49826 49826 "stdlib.mli" 1291 49826 49846
+)
+"main.ml" 41 1251 1260 "main.ml" 41 1251 1261
+type(
+  int
+)
+"main.ml" 41 1251 1255 "main.ml" 41 1251 1261
+type(
+  unit
+)
+"main.ml" 40 1222 1226 "main.ml" 41 1251 1261
+type(
+  unit
+)
+"main.ml" 38 1099 1150 "main.ml" 42 1262 1267
+type(
+  unit
+)
+"main.ml" 38 1099 1101 "main.ml" 42 1262 1267
+type(
+  unit
+)
+"main.ml" 45 1316 1322 "main.ml" 45 1316 1323
+type(
+  in_channel
+)
+ident(
+  def f "main.ml" 48 1393 1395 "main.ml" 75 2424 2466
+)
+"main.ml" 45 1316 1326 "main.ml" 45 1316 1333
+type(
+  string -> in_channel
+)
+ident(
+  int_ref Stdlib.open_in "stdlib.mli" 1021 38257 38257 "stdlib.mli" 1021 38257 38291
+)
+"main.ml" 45 1316 1334 "main.ml" 45 1316 1335
+type(
+  string ref -> string
+)
+ident(
+  int_ref Stdlib.( ! ) "stdlib.mli" 1162 44470 44470 "stdlib.mli" 1162 44470 44511
+)
+"main.ml" 45 1316 1335 "main.ml" 45 1316 1340
+type(
+  string ref
+)
+ident(
+  int_ref ifile "main.ml" 10 199 203 "main.ml" 10 199 208
+)
+"main.ml" 45 1316 1334 "main.ml" 45 1316 1340
+type(
+  string
+)
+"main.ml" 45 1316 1326 "main.ml" 45 1316 1340
+type(
+  in_channel
+)
+"main.ml" 48 1393 1399 "main.ml" 48 1393 1402
+type(
+  Lexing.lexbuf
+)
+ident(
+  def buf "main.ml" 50 1431 1433 "main.ml" 75 2424 2466
+)
+"main.ml" 48 1393 1405 "main.ml" 48 1393 1424
+type(
+  ?with_positions:bool -> in_channel -> Lexing.lexbuf
+)
+ident(
+  int_ref Stdlib.Lexing.from_channel "lexing.mli" 92 4163 4163 "lexing.mli" 92 4163 4226
+)
+"main.ml" 48 1393 1425 "main.ml" 48 1393 1426
+type(
+  in_channel
+)
+ident(
+  int_ref f "main.ml" 45 1316 1322 "main.ml" 45 1316 1323
+)
+"main.ml" 48 1393 1405 "main.ml" 48 1393 1426
+type(
+  Lexing.lexbuf
+)
+"main.ml" 56 1720 1728 "main.ml" 56 1720 1729
+type(
+  Ast.prog
+)
+ident(
+  def p "main.ml" 57 1763 1767 "main.ml" 60 1830 1861
+)
+"main.ml" 56 1720 1732 "main.ml" 56 1720 1743
+type(
+  (Lexing.lexbuf -> Parser.token) -> Lexing.lexbuf -> Ast.prog
+)
+ident(
+  int_ref Parser.prog "parser.mli" 59 644 644 "parser.mli" 59 644 709
+)
+"main.ml" 56 1720 1744 "main.ml" 56 1720 1755
+type(
+  Lexing.lexbuf -> Parser.token
+)
+ident(
+  int_ref Lexer.token "lexer.ml" 153 8624 8632 "lexer.ml" 153 8624 8637
+)
+"main.ml" 56 1720 1756 "main.ml" 56 1720 1759
+type(
+  Lexing.lexbuf
+)
+ident(
+  int_ref buf "main.ml" 48 1393 1399 "main.ml" 48 1393 1402
+)
+"main.ml" 56 1720 1732 "main.ml" 56 1720 1759
+type(
+  Ast.prog
+)
+"main.ml" 57 1763 1767 "main.ml" 57 1763 1775
+type(
+  in_channel -> unit
+)
+ident(
+  int_ref Stdlib.close_in "stdlib.mli" 1115 42633 42633 "stdlib.mli" 1115 42633 42666
+)
+"main.ml" 57 1763 1776 "main.ml" 57 1763 1777
+type(
+  in_channel
+)
+ident(
+  int_ref f "main.ml" 45 1316 1322 "main.ml" 45 1316 1323
+)
+"main.ml" 57 1763 1767 "main.ml" 57 1763 1777
+type(
+  unit
+)
+"main.ml" 60 1830 1837 "main.ml" 60 1830 1838
+type(
+  bool ref -> bool
+)
+ident(
+  int_ref Stdlib.( ! ) "stdlib.mli" 1162 44470 44470 "stdlib.mli" 1162 44470 44511
+)
+"main.ml" 60 1830 1838 "main.ml" 60 1830 1848
+type(
+  bool ref
+)
+ident(
+  int_ref parse_only "main.ml" 7 133 137 "main.ml" 7 133 147
+)
+"main.ml" 60 1830 1837 "main.ml" 60 1830 1848
+type(
+  bool
+)
+"main.ml" 60 1830 1854 "main.ml" 60 1830 1858
+type(
+  int -> unit
+)
+ident(
+  int_ref Stdlib.exit "stdlib.mli" 1291 49826 49826 "stdlib.mli" 1291 49826 49846
+)
+"main.ml" 60 1830 1859 "main.ml" 60 1830 1860
+type(
+  int
+)
+"main.ml" 60 1830 1854 "main.ml" 60 1830 1860
+type(
+  unit
+)
+"main.ml" 60 1830 1834 "main.ml" 60 1830 1860
+type(
+  unit
+)
+"main.ml" 57 1763 1767 "main.ml" 60 1830 1861
+type(
+  unit
+)
+"main.ml" 56 1720 1724 "main.ml" 60 1830 1861
+type(
+  unit
+)
+"main.ml" 66 2071 2096 "main.ml" 66 2071 2097
+type(
+  char
+)
+ident(
+  def c "main.ml" 69 2203 2204 "main.ml" 71 2298 2305
+)
+"main.ml" 66 2071 2077 "main.ml" 66 2071 2097
+type(
+  exn
+)
+"main.ml" 69 2203 2204 "main.ml" 69 2203 2216
+type(
+  Lexing.position -> unit
+)
+ident(
+  int_ref localisation "main.ml" 25 639 643 "main.ml" 25 639 655
+)
+"main.ml" 69 2203 2218 "main.ml" 69 2203 2239
+type(
+  Lexing.lexbuf -> Lexing.position
+)
+ident(
+  int_ref Stdlib.Lexing.lexeme_start_p "lexing.mli" 153 6815 6815 "lexing.mli" 153 6815 6854
+)
+"main.ml" 69 2203 2240 "main.ml" 69 2203 2243
+type(
+  Lexing.lexbuf
+)
+ident(
+  int_ref buf "main.ml" 48 1393 1399 "main.ml" 48 1393 1402
+)
+"main.ml" 69 2203 2217 "main.ml" 69 2203 2244
+type(
+  Lexing.position
+)
+"main.ml" 69 2203 2204 "main.ml" 69 2203 2244
+type(
+  unit
+)
+"main.ml" 70 2246 2247 "main.ml" 70 2246 2254
+type(
+  (char -> unit, Format.formatter, unit) format -> char -> unit
+)
+ident(
+  int_ref Stdlib.Format.eprintf "format.mli" 1178 46011 46011 "format.mli" 1178 46011 46059
+)
+"main.ml" 70 2246 2255 "main.ml" 70 2246 2294
+type(
+  (char -> unit, Format.formatter, unit) format
+)
+"main.ml" 70 2246 2295 "main.ml" 70 2246 2296
+type(
+  char
+)
+ident(
+  int_ref c "main.ml" 66 2071 2096 "main.ml" 66 2071 2097
+)
+"main.ml" 70 2246 2247 "main.ml" 70 2246 2296
+type(
+  unit
+)
+"main.ml" 71 2298 2299 "main.ml" 71 2298 2303
+type(
+  int -> unit
+)
+ident(
+  int_ref Stdlib.exit "stdlib.mli" 1291 49826 49826 "stdlib.mli" 1291 49826 49846
+)
+"main.ml" 71 2298 2304 "main.ml" 71 2298 2305
+type(
+  int
+)
+"main.ml" 71 2298 2299 "main.ml" 71 2298 2305
+type(
+  unit
+)
+"main.ml" 70 2246 2247 "main.ml" 71 2298 2305
+type(
+  unit
+)
+"main.ml" 69 2203 2204 "main.ml" 71 2298 2305
+type(
+  unit
+)
+"main.ml" 72 2306 2312 "main.ml" 72 2306 2324
+type(
+  exn
+)
+"main.ml" 75 2424 2425 "main.ml" 75 2424 2437
+type(
+  Lexing.position -> unit
+)
+ident(
+  int_ref localisation "main.ml" 25 639 643 "main.ml" 25 639 655
+)
+"main.ml" 75 2424 2439 "main.ml" 75 2424 2460
+type(
+  Lexing.lexbuf -> Lexing.position
+)
+ident(
+  int_ref Stdlib.Lexing.lexeme_start_p "lexing.mli" 153 6815 6815 "lexing.mli" 153 6815 6854
+)
+"main.ml" 75 2424 2461 "main.ml" 75 2424 2464
+type(
+  Lexing.lexbuf
+)
+ident(
+  int_ref buf "main.ml" 48 1393 1399 "main.ml" 48 1393 1402
+)
+"main.ml" 75 2424 2438 "main.ml" 75 2424 2465
+type(
+  Lexing.position
+)
+"main.ml" 75 2424 2425 "main.ml" 75 2424 2465
+type(
+  unit
+)
+"main.ml" 50 1431 1433 "main.ml" 75 2424 2466
+type(
+  unit
+)
+"main.ml" 48 1393 1395 "main.ml" 75 2424 2466
+type(
+  unit
+)
+"main.ml" 45 1316 1318 "main.ml" 75 2424 2466
+type(
+  unit
+)
+"main.ml" 38 1099 1101 "main.ml" 75 2424 2466
+type(
+  unit
+)
+"main.ml" 35 963 965 "main.ml" 75 2424 2466
+type(
+  unit
+)
+"main.ml" 32 849 851 "main.ml" 75 2424 2466
+type(
+  unit
+)
