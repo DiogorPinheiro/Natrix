@@ -41,4 +41,4 @@ done
 
 echo
 percent=`expr 100 \* $score / $max`;
-echo "Score: $score / $max testes, seja $percent%"
+echo "Score: $score / $max testes,  $percent%"

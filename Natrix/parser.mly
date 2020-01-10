@@ -37,7 +37,7 @@ prog:
 ;
 
 func:
-  | DEF  t = typ i1=ident  EPAREN  s = separated_list(VIRGULA,ident)  DPAREN  AS  b = body  {t,i1,s,b}        (* def int nome(... , ...) : {...} *)
+  | DEF  t = typ i1=ident  EPAREN  s = separated_list(VIRGULA,ident)  DPAREN  AS  b = body  {i1,t,s,b}        (* def int nome(... , ...) : {...} *)
 ;
 
 (* Corpo da função *)

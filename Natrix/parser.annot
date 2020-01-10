@@ -3988,19 +3988,19 @@ ident(
 type(
   Ast.ident list
 )
-"parser.mly" 40 14410 14503 "parser.mly" 40 14410 14504
-type(
-  Ast.typ
-)
-ident(
-  int_ref t "parser.ml" 336 13957 14007 "parser.ml" 336 13957 14008
-)
-"parser.mly" 40 14410 14505 "parser.mly" 40 14410 14507
+"parser.mly" 40 14410 14503 "parser.mly" 40 14410 14505
 type(
   Ast.ident
 )
 ident(
   int_ref i1 "parser.ml" 336 13957 14026 "parser.ml" 336 13957 14028
+)
+"parser.mly" 40 14410 14506 "parser.mly" 40 14410 14507
+type(
+  Ast.typ
+)
+ident(
+  int_ref t "parser.ml" 336 13957 14007 "parser.ml" 336 13957 14008
 )
 "parser.mly" 40 14410 14508 "parser.mly" 40 14410 14509
 type(

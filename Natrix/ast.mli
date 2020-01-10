@@ -45,7 +45,7 @@ and instr =
   | IFOR of ident * expr * instr
   | BODY of instr list
 
-  and func = typ * ident * ident list * instr
+  and func = ident * typ * ident list * instr
 
   and prog = func list * instr
 

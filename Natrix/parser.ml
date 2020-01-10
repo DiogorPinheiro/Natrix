@@ -345,7 +345,7 @@ and _menhir_goto_body : _menhir_env -> 'ttv_tail -> _menhir_state -> 'tv_body ->
          in
         
 # 40 "parser.mly"
-                                                                                            (t,i1,s,b)
+                                                                                            (i1,t,s,b)
 # 350 "parser.ml"
          in
         let (_menhir_env : _menhir_env) = _menhir_env in
