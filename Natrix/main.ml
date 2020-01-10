@@ -29,7 +29,7 @@ let report (b,e) =
   let fc = b.pos_cnum - b.pos_bol + 1 in
   let lc = e.pos_cnum - b.pos_bol + 1 in
   eprintf "File \"%s\", line %d, characters %d-%d:\n" file l fc lc
-(*
+
 let () =
   let c = open_in file in
   let lb = Lexing.from_channel c in
@@ -53,4 +53,3 @@ let () =
     | e ->
 	eprintf "Anomaly: %s\n@." (Printexc.to_string e);
 	exit 2
-*)

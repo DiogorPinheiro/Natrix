@@ -99,9 +99,6 @@ let rec expr ctx = function
   | Eunop (Unot, e1) ->   Vbool (is_false (expr ctx e1) )   (* Retornar bool negativo *)
 (* chamadas de função *)
   | Var id ->    (* Verificar se existe elemento da Hasthbl ctx na posição id*)
-    if not (Hashtbl.mem ctx id ) then error "Index inexistente";
-    Hashtbl.find ctx id   (* index existe nas variáveis, logo resta apenas encontrar o elemento dessa posição *)
-  | Var id ->    (* Verificar se existe elemento da Hasthbl ctx na posição id*)
       if not (Hashtbl.mem ctx id ) then error "Index inexistente";
       Hashtbl.find ctx id   (* index existe nas variáveis, logo resta apenas encontrar o elemento dessa posição *)
   | CALL (f, el) ->
