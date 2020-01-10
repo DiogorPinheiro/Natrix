@@ -1,87 +1,56 @@
-(* Ficheiro principal do compilador arithc *)
+
+(* Programa principal *)
 
 open Format
 open Lexing
+open Parser
 
-(* Opção de compilação, para parar na fase de parsing *)
+let usage = "usage: natrix [options] file.nx"
+
 let parse_only = ref false
 
-(* Nome dos ficheiros fonte e alvo *)
-let ifile = ref ""
-let ofile = ref ""
+let spec =
+  [
+    "--parse-only", Arg.Set parse_only, "  stop after parsing";
+  ]
 
-let set_file f s = f := s
+let file =
+  let file = ref None in
+  let set_file s =
+    if not (Filename.check_suffix s ".nx") then
+      raise (Arg.Bad "no .nx extension");
+    file := Some s
+  in
+  Arg.parse spec set_file usage;
+  match !file with Some f -> f | None -> Arg.usage spec usage; exit 1
 
-(* As opções do compilador que são mostradas quando é invocada o comando arithc --help *)
-let options =
-  ["-parse-only", Arg.Set parse_only,
-   "  Executar somente o parsing";
-   "-o", Arg.String (set_file ofile),
-   "<file>  Para indicar o nome do ficheiro em saída"]
-
-let usage = "usage: natrix [option] file.nx"
-
-(* localiza um erro indicando a linha e a coluna *)
-let localisation pos =
-  let l = pos.pos_lnum in
-  let c = pos.pos_cnum - pos.pos_bol + 1 in
-  eprintf "File \"%s\", line %d, characters %d-%d:\n" !ifile l (c-1) c
-
+let report (b,e) =
+  let l = b.pos_lnum in
+  let fc = b.pos_cnum - b.pos_bol + 1 in
+  let lc = e.pos_cnum - b.pos_bol + 1 in
+  eprintf "File \"%s\", line %d, characters %d-%d:\n" file l fc lc
+(*
 let () =
-  (* Parsing da linha de comando *)
-  Arg.parse options (set_file ifile) usage;
-
-  (* Verifica-se que o nome do ficheiro fonte foi bem introduzido *)
-  if !ifile="" then begin eprintf "Nenhum ficheiro para compilar\n@?"; exit 1 end;
-
-  (* Este ficheiro deve ter como extensão  .exp *)
-  if not (Filename.check_suffix !ifile ".nx") then begin
-    eprintf "O ficheiro em entrada deve ter a extensão .nx\n@?";
-    Arg.usage options usage;
-    exit 1
-  end;
-
-  (* Abertura do ficheiro fonte em leitura *)
-  let f = open_in !ifile in
-
-  (* Criação do buffer de análise léxica *)
-  let buf = Lexing.from_channel f in
-
+  let c = open_in file in
+  let lb = Lexing.from_channel c in
   try
-    (* Parsing: A função Parser.prog transforma o buffer d'análise léxica  
-       numa árvore de sintaxe abstracta se nenujk erro  (léxico ou sintáctico) 
-       foi detectado.
-       A função Lexer.token é utilizada por Parser.prog para obter
-       o próximo token. *)
-    let p = Parser.prog Lexer.token buf in
-    close_in f;
-
-    (* Pára-se aqui se só queremos o parsing *)
+    let f = Parser.prog Lexer.next_token lb in
+    close_in c;
     if !parse_only then exit 0;
-
-    (* Compilação da árvore de sintaxe abstracta p. O código máquina
-       resultante desta transformação deve ficar escrito no ficheiro alvo ofile. *)
-    (*Compile.compile_program p !ofile*)
+    Interp.prog f
   with
-    | Lexer.Lexing_error c ->
-	(* Erro léxico. Recupera-se a posição absoluta e converte-se para número 
-           de linha *)
-	localisation (Lexing.lexeme_start_p buf);
-	eprintf "Erro durante a análise léxica: %c@." c;
+    | Lexer.Lexing_error s ->
+	report (lexeme_start_p lb, lexeme_end_p lb);
+	eprintf "lexical error: %s@." s;
 	exit 1
     | Parser.Error ->
-	(* Erro sintáctio. Recupera-se a posição e converte-se para número 
-           de linha *)
-	localisation (Lexing.lexeme_start_p buf);
-	(*eprintf "Erro durante a análise sintáctica@.";
+	report (lexeme_start_p lb, lexeme_end_p lb);
+	eprintf "syntax error@.";
 	exit 1
-    | Compile.VarUndef s->
-	(* Erro de utilização de variáveis durante a compilação *)
-	eprintf
-	  "Erro de compilação: a variável  %s não está definida@." s;
-	exit 1*)
-
-
-
-
-
+    | Interp.Error s ->
+	eprintf "error: %s@." s;
+	exit 1
+    | e ->
+	eprintf "Anomaly: %s\n@." (Printexc.to_string e);
+	exit 2
+*)
